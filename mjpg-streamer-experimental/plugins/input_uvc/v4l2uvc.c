@@ -609,6 +609,9 @@ int memcpy_picture(unsigned char *out, unsigned char *buf, int size)
         memcpy(out + pos, dht_data, sizeof(dht_data)); pos += sizeof(dht_data);
         memcpy(out + pos, ptcur, size - sizein); pos += size - sizein;
     } else {
+        DBG("orisize, %d", size);
+        size = jpeg_imageFile_dec_rgb2y_enc(ptcur, size);
+        DBG("aftersize, %d", size);
         memcpy(out + pos, ptcur, size); pos += size;
     }
     return pos;
