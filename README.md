@@ -1,5 +1,5 @@
-mjpg-streamer
 =====*NEW*======
+
 MJPEG-Streamer相比于RTSP等视频方案，非常做适合性能受限的硬件推流，尝试过基于高通410制作了推流器，效果很不错。但为了进一步降低时延，采用将彩色画面转成黑白画面传输(RGB转单Y通道)，并采用一系列加速方式，用法和之前一致。
 
 - 效果：
@@ -27,6 +27,7 @@ make CMAKE_BUILD_TYPE=Debug #DEBUG版本
 ```
 
 =====*NEW(EN)*======
+
 Compared with video schemes such as RTSP, MJPEG-Streamer is very suitable for hardware streaming with limited performance. I have tried to make a streamer based on Qualcomm 410, and the effect is very good. However, in order to further reduce the delay, the color picture is converted into black and white picture transmission (RGB transfer Y channel), and a series of acceleration methods are adopted, the usage is the same as before.
 
 - Effect:
