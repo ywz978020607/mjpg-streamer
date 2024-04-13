@@ -284,7 +284,7 @@ int compress_image_to_jpeg(struct vdIn *vd, unsigned char *buffer, int size, int
 }
 
 
-void *memcpy_rgb2y(char *dest, const char *src, size_t count){
+void *memcpy_rgb2y(unsigned char *dest, const unsigned char *src, size_t count){
 	// char *d = (char*)dest;
 	// const char *s = (char*)src;
 	while(count--){
@@ -293,7 +293,7 @@ void *memcpy_rgb2y(char *dest, const char *src, size_t count){
 		*dest++ = ((*src++)*1224+(*src++)*2404+(*src++)*467)>>12;
 	}
 }
-unsigned long jpeg_imageFile_dec_rgb2y_enc(char *inbuff, size_t inbuff_len){
+unsigned long jpeg_imageFile_dec_rgb2y_enc(unsigned char *outbuff, unsigned char *inbuff, size_t inbuff_len){
 	int quality = 60;
 	int width = 1920;
 	int height = 1080;
@@ -343,7 +343,7 @@ unsigned long jpeg_imageFile_dec_rgb2y_enc(char *inbuff, size_t inbuff_len){
 	jpeg_create_compress(&cinfo_enc);
 
 	/****1. 指定目标源***/
-	jpeg_mem_dest(&cinfo_enc, &inbuff, &jpeg_size);
+	jpeg_mem_dest(&cinfo_enc, &outbuff, &jpeg_size);
 	/**2. 指定图像宽高，深度，色彩空间***/
 	cinfo_enc.image_width = width;
 	cinfo_enc.image_height = height;
