@@ -611,6 +611,8 @@ int memcpy_picture(unsigned char *out, struct vdIn *vd, int quality, unsigned ch
         memcpy(out + pos, buf, sizein); pos += sizein;
         memcpy(out + pos, dht_data, sizeof(dht_data)); pos += sizeof(dht_data);
         memcpy(out + pos, ptcur, size - sizein); pos += size - sizein;
+        if(gray)
+          pos = jpeg_imageFile_dec_rgb2y_enc(out, out, size + sizeof(dht_data), vd->width, vd->height, quality);
     } else {
         if(gray){
             pos += jpeg_imageFile_dec_rgb2y_enc(out + pos, ptcur, size, vd->width, vd->height, quality);
