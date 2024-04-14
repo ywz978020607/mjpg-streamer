@@ -293,11 +293,7 @@ void *memcpy_rgb2y(unsigned char *dest, const unsigned char *src, size_t count){
 		*dest++ = ((*src++)*1224+(*src++)*2404+(*src++)*467)>>12;
 	}
 }
-unsigned long jpeg_imageFile_dec_rgb2y_enc(unsigned char *outbuff, unsigned char *inbuff, size_t inbuff_len){
-	int quality = 60;
-	int width = 1920;
-	int height = 1080;
-	// -----------
+unsigned long jpeg_imageFile_dec_rgb2y_enc(unsigned char *outbuff, unsigned char *inbuff, size_t inbuff_len, int width, int height, int quality){
 	struct jpeg_decompress_struct cinfo;
 	JSAMPARRAY raw_buffer;
 	char *src_buff;

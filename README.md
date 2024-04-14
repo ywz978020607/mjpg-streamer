@@ -26,6 +26,9 @@ make
 make CMAKE_BUILD_TYPE=Debug #DEBUG版本
 ```
 
+- 使用:
+增加--gray参数，加上则是灰色，不加则是原版
+
 =====*NEW(EN)*======
 
 Compared with video schemes such as RTSP, MJPEG-Streamer is very suitable for hardware streaming with limited performance. I have tried to make a streamer based on Qualcomm 410, and the effect is very good. However, in order to further reduce the delay, the color picture is converted into black and white picture transmission (RGB transfer Y channel), and a series of acceleration methods are adopted, the usage is the same as before.
@@ -52,7 +55,8 @@ make
 # or
 make CMAKE_BUILD_TYPE=Debug #DEBUG version
 ```
-
+- Usage:
+`--gray` argument is what you need while using gray mode.
 
 
 ====QUOTE====
